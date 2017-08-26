@@ -9,9 +9,9 @@ set(LIBJPEG_INCLUDE_DIR src/main/cpp/include)
 include_directories(${LIBJPEG_INCLUDE_DIR})
 
 #导入libjpeg动态库 SHARED；静态库为STATIC
-add_library(libjpeg SHARED IMPORTED)
+add_library(jpeg SHARED IMPORTED)
 #对应so目录，这里为了简单设置的是绝对路径（注意要先 add_library，再 set_target_properties）
-set_target_properties(libjpeg PROPERTIES IMPORTED_LOCATION /Users/cfanr/AndroidStudioProjects/DemoProjects/NDKSample/compress/libs/${ANDROID_ABI}/libjpeg.so)
+set_target_properties(jpeg PROPERTIES IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/libs/${ANDROID_ABI}/libjpeg.so)
 
 add_library(
              compress
@@ -22,4 +22,4 @@ add_library(
 find_library(graphics jnigraphics)
 find_library(log-lib log)
 
-target_link_libraries(compress libjpeg ${log-lib} ${graphics})
+target_link_libraries(compress jpeg ${log-lib} ${graphics})
