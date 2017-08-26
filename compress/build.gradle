@@ -23,12 +23,6 @@ android {
             path "CMakeLists.txt"
         }
     }
-    sourceSets {
-        main {
-            java.srcDirs 'src/java'
-            jniLibs.srcDirs 'libs'
-        }
-    }
 
     buildTypes {
         release {
